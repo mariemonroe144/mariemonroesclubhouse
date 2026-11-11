@@ -99,6 +99,7 @@ section{padding:clamp(4.5rem,10vw,7.5rem) 0}
 .c-green{background:var(--green);color:#fff}
 .c-gold{background:var(--gold);color:var(--night)}
 .c-purple{background:var(--violet);color:#fff}
+.c-pink{background:var(--pink);color:#fff}
 .c-hire{border:1px dashed rgba(214,178,94,.6);color:var(--gold-pale);font-weight:300}
 .daylist{display:none}
 .key{display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;margin-top:1.6rem;font-size:.88rem;color:var(--muted)}
@@ -122,7 +123,7 @@ section{padding:clamp(4.5rem,10vw,7.5rem) 0}
 .readings .box{display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center}
 .readings .meta{font-family:"Playfair Display",Georgia,serif;font-size:2.4rem;color:var(--ink);line-height:1.1}
 .readings .meta small{display:block;font-family:Montserrat,Arial,sans-serif;font-size:.95rem;color:var(--muted);margin-top:.4rem}
-@media (max-width:760px){.readings .box{grid-template-columns:1fr}}
+@media (max-width:760px){.readings .box,#girls-night .box{grid-template-columns:1fr!important}}
 
 /* membership */
 .why{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem 2rem;margin-top:2.6rem;text-align:left}
@@ -260,7 +261,7 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
         <div class="pillar" style="--c:var(--pink)"><h3>Nightlife</h3><p>Karaoke, silent discos, sober raves and open mic comedy. A proper night out, then drive yourself home.</p></div>
         <div class="pillar" style="--c:#A97BE0"><h3>The space</h3><p>The balcony bar and upstairs members’ space, with games, creative and chill out areas, whenever you like.</p></div>
       </div>
-      <p class="facts-line">Never more than 60 guests inside at once, and membership capped at 100, so it always feels intimate, never crowded.</p>
+      <p class="facts-line">Never more than 60 guests inside at once, and membership is limited, so it always feels intimate, never crowded.</p>
     </div>
   </section>
 
@@ -268,22 +269,19 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
     <div class="wrap">
       <span class="eyebrow">Explore the house</span>
       <h2>Winpenny House</h2>
-      <p class="lede">A Grade II listed Victorian building with ornate ironwork, a balcony and crystal chandeliers. The building is half the experience.</p>
+      <p class="lede">A Grade II listed Victorian building with ornate ironwork, a balcony and crystal chandeliers. It’s mid renovation right now, so follow along on our socials as it comes together.</p>
       <div class="rooms">
         <div class="room">
-          <figure><img src="room-downstairs.jpg" alt="The main room downstairs at Winpenny House" loading="lazy" onerror="this.parentNode.classList.add('missing');this.remove()"></figure>
           <span class="label">Downstairs</span>
           <h3>The main room</h3>
           <p>Where the classes and events happen.</p>
         </div>
         <div class="room">
-          <figure><img src="room-upstairs.jpg" alt="The Victorian balcony bar upstairs" loading="lazy" onerror="this.parentNode.classList.add('missing');this.remove()"></figure>
           <span class="label">Upstairs</span>
           <h3>The balcony bar</h3>
           <p>The bar sits on the Victorian balcony, overlooking the house and its chandeliers. Matcha, coffee and pink lemonade, made to be lingered over. Games, creative and chill out space for members to come and go.</p>
         </div>
         <div class="room">
-          <figure><img src="room-cellar.jpg" alt="The cellar, once the police cells" loading="lazy" onerror="this.parentNode.classList.add('missing');this.remove()"></figure>
           <span class="label">The cellar</span>
           <h3>The old police cells</h3>
           <p>Now home to murder mystery nights and special events.</p>
@@ -305,6 +303,7 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
         <span><i class="sw c-green"></i>Wellbeing</span>
         <span><i class="sw c-gold"></i>Social nights</span>
         <span><i class="sw c-purple"></i>Nightlife</span>
+        <span><i class="sw c-pink"></i>Private Girls Night</span>
         <span><i class="sw c-hire"></i>Available to hire</span>
       </div>
       <p class="also">Plus Moon Circles on every full and new moon, readings, reiki and sekhem by appointment, and special one off events.</p>
@@ -325,6 +324,18 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
     </div>
   </section>
 
+  <section id="girls-night">
+    <div class="wrap box" style="display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center">
+      <div>
+        <span class="eyebrow">Every Sunday, one a week</span>
+        <h2>Sunday Girls Nights</h2>
+        <p class="lede">The whole clubhouse, for you and up to 11 friends, every Sunday. The person who books gets a full 45 minute reading with me, every guest gets 20 minutes, plus dream boards, food, drinks, a goody bag each and photo opportunities everywhere. You choose the start time. Only one a week, so book your Sunday early.</p>
+        <a class="cta" href="https://quantummarie.com/girls-night/">Book your Sunday</a>
+      </div>
+      <div class="readings meta" style="background:none;border:0;font-family:'Playfair Display',Georgia,serif;font-size:2.4rem;color:var(--ink);line-height:1.1">£111<small style="display:block;font-family:Montserrat,Arial,sans-serif;font-size:.95rem;color:var(--muted);margin-top:.4rem">per person, parties of 5 to 12</small></div>
+    </div>
+  </section>
+
   <section id="membership">
     <div class="wrap">
       <div class="center">
@@ -337,9 +348,9 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
         <div><h3>Upstairs is yours</h3><p>The balcony bar and members’ space, somewhere to go that isn’t home or work.</p></div>
         <div><h3>Members first</h3><p>Priority entry, so members are always let in before anyone else.</p></div>
         <div><h3>Member prices</h3><p>Special events at member prices.</p></div>
-        <div><h3>Kept intimate</h3><p>Membership capped at 100, so it never turns into a crowd.</p></div>
+        <div><h3>Kept intimate</h3><p>Membership is limited, so it never turns into a crowd.</p></div>
       </div>
-      <p class="capnote"><strong>How capacity works.</strong> The house holds a maximum of 60 guests at once. Members always have priority entry over non members. Once all 100 memberships are taken, new applicants join the waiting list.</p>
+      <p class="capnote"><strong>How capacity works.</strong> The house holds a maximum of 60 guests at once. Members always have priority entry over non members. Membership is limited, and once it’s full, new applicants join the waiting list.</p>
 
       <div class="plans">
         <div class="plan founder">
@@ -421,7 +432,7 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
     <div class="narrow">
       <span class="eyebrow">Become a member</span>
       <h2>Apply for membership</h2>
-      <p class="lede">Membership is capped at 100. Tell us a little about yourself and we’ll be in touch.</p>
+      <p class="lede">Membership is limited. Tell us a little about yourself and we’ll be in touch.</p>
       <ol class="steps">
         <li>Send your application below. It takes a minute.</li>
         <li>We get in touch personally to confirm your place, or add you to the waiting list once we’re full.</li>
@@ -460,7 +471,7 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
         <details><summary>What’s the difference between Club, Day and Evening?</summary><p>Club is everything, £75 a month. Evening is every evening event from 7pm, £50 a month. Day is every daytime class, including morning and after work meditation, £50 a month.</p></details>
         <details><summary>How does the Founding 25 offer work?</summary><p>The first 25 members pay £60 a month, locked in for life, for the whole weekly timetable, unlimited meditation, the balcony bar and upstairs whenever they like, priority entry, member prices on special events, no joining fee, and their photo and name on the founders’ wall.</p></details>
         <details><summary>Is there a joining fee?</summary><p>A one off £25 joining fee applies to Day, Evening and Club memberships. It’s waived for the founding 25.</p></details>
-        <details><summary>What happens when membership reaches 100?</summary><p>Once every place is taken, new applicants join the waiting list.</p></details>
+        <details><summary>What happens when membership is full?</summary><p>Membership is limited. Once every place is taken, new applicants join the waiting list.</p></details>
         <details><summary>What happens if an event is full?</summary><p>The house holds a maximum of 60 guests at once. Members always have priority entry over non members.</p></details>
         <details><summary>Where is the Clubhouse?</summary><p>Winpenny House, 45 High Street, Stockton-on-Tees. Opposite the fountains, next to the new park.</p></details>
         <details><summary>How do I apply?</summary><p>Fill in the application form. We’ll be in touch personally to confirm your place, or add you to the waiting list once we’re full.</p></details>
@@ -494,6 +505,7 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
     <a href="#week">What’s on</a>
     <a href="#hire">Venue hire</a>
     <a href="https://quantummarie.com">Book a tarot reading</a>
+    <a href="https://quantummarie.com/girls-night/">Sunday Girls Nights</a>
   </nav>
   <div class="social" id="social"></div>
 </footer>
@@ -520,7 +532,6 @@ const FOUNDING_PLACES_TAKEN = 0;
 // Your social links. Leave any empty to hide it.
 const SOCIAL = { Instagram: "", Facebook: "", TikTok: "" };
 
-// Room photos: upload room-downstairs.jpg, room-upstairs.jpg and room-cellar.jpg to show them.
 
 // Making of photos. Upload images to the same folder and list them here.
 const PHOTOS = {
@@ -530,7 +541,7 @@ const PHOTOS = {
 };
 
 // The weekly timetable. "green" wellbeing, "gold" social nights,
-// "purple" nightlife, "hire" available to hire.
+// "purple" nightlife, "pink" private Girls Night, "hire" available to hire.
 const TIMES = [
   { label: "10am to 11am" },
   { label: "11am to 5:30pm" },
@@ -540,6 +551,7 @@ const TIMES = [
 ];
 const H = ["Available to hire", "hire"];
 const M = ["Meditation", "green"];
+const G = ["Private Girls Night", "pink"];
 const TIMETABLE = {
   Mon: [M, H, M, ["Chess and Games Night", "gold"], ["Book Club", "gold"]],
   Tue: [M, H, M, ["Quiz Night", "gold"], ["Open Mic Comedy", "gold"]],
@@ -547,7 +559,7 @@ const TIMETABLE = {
   Thu: [H, H, H, H, H],
   Fri: [M, H, M, ["Karaoke", "purple"], ["Karaoke", "purple"]],
   Sat: [M, H, M, ["Silent Disco", "purple"], ["Sober Rave", "purple"]],
-  Sun: [H, H, H, H, H]
+  Sun: [G, G, G, G, G]
 };
 /* ================================================================= */
 
