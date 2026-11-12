@@ -328,9 +328,9 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
   <section id="private-experience">
     <div class="wrap box" style="display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center">
       <div>
-        <span class="eyebrow">Private hire, Sundays</span>
+        <span class="eyebrow">Private hire, Sundays only</span>
         <h2>The Private Clubhouse Experience</h2>
-        <p class="lede">The whole Clubhouse to yourselves for five hours. Five hours in a Grade II listed Victorian house with your favourite people and nobody else. Private readings, karaoke and music, and a guided dream board session. Birthdays, hen parties and celebrations.</p>
+        <p class="lede">The whole Clubhouse to yourselves for five hours. Five hours in a Grade II listed Victorian house with your favourite people and nobody else. Private readings, karaoke and music, and a guided dream board session. Birthdays, hen parties and celebrations, Sundays only.</p>
         <a class="cta" href="/private-experience/">See the Private Experience</a>
       </div>
       <div style="font-family:'Playfair Display',Georgia,serif;font-size:2.4rem;color:var(--ink);line-height:1.1">£129<small style="display:block;font-family:Montserrat,Arial,sans-serif;font-size:.95rem;color:var(--muted);margin-top:.4rem">with a reading, £89 without</small></div>
@@ -486,8 +486,21 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
       <div>
         <span class="eyebrow">Venue hire</span>
         <h2>Hire the house</h2>
-        <p style="margin-top:1.2rem">Classes, workshops and parties welcome downstairs. Ideal for yoga and pilates instructors looking for a regular weekly slot. Any slot marked available on the timetable can be booked.</p>
-        <a class="cta line" id="hirebtn" href="#apply">Ask about hiring</a>
+        <p style="margin-top:1.2rem"><strong style="color:var(--ink);font-weight:500">Planning a party?</strong> Birthdays, hen parties and celebrations are booked as the Private Clubhouse Experience, on Sundays only.</p>
+        <a class="cta" href="/private-experience/">See the Private Clubhouse Experience</a>
+        <p style="margin-top:2rem"><strong style="color:var(--ink);font-weight:500">Running a class or workshop?</strong> Classes and workshops are welcome downstairs. Ideal for yoga and pilates instructors looking for a regular weekly slot. Any slot marked available on the timetable can be booked. Send an enquiry and we’ll be in touch.</p>
+        <form id="hireform" novalidate style="margin-top:1.2rem">
+          <input type="hidden" name="_subject" value="Venue hire enquiry">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+          <div class="two">
+            <div><label for="h-name">Name</label><input id="h-name" name="name" type="text" autocomplete="name" required></div>
+            <div><label for="h-phone">Phone</label><input id="h-phone" name="phone" type="tel" autocomplete="tel"></div>
+          </div>
+          <div><label for="h-email">Email</label><input id="h-email" name="email" type="email" autocomplete="email" required></div>
+          <div><label for="h-msg">What would you like to run, and when?</label><textarea id="h-msg" name="hire_enquiry" rows="3"></textarea></div>
+          <div><button class="cta line" type="submit">Send my enquiry</button></div>
+          <p class="form-msg" id="hiremsg" role="status"></p>
+        </form>
       </div>
       <div>
         <span class="eyebrow">Opening night</span>
@@ -523,9 +536,6 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
 
 // Where applications are sent (your existing Formspree form).
 const APPLICATION_FORM_LINK = "https://formspree.io/f/xdeebdyj";
-
-// Hire enquiries, e.g. "mailto:you@example.com". Leave empty to use the application form.
-const HIRE_CONTACT_LINK = "";
 
 // Founding places taken so far. Once it's above 0 the site shows how many are left.
 const FOUNDING_PLACES_TAKEN = 0;
@@ -602,8 +612,6 @@ document.getElementById("gallery").innerHTML = STAGES.map(([k, title, note]) =>
 // socials
 document.getElementById("social").innerHTML = Object.entries(SOCIAL).filter(([, u]) => u).map(([n, u]) => `<a href="${esc(u)}" rel="noopener">${n}</a>`).join("");
 
-// hire button
-if (HIRE_CONTACT_LINK) document.getElementById("hirebtn").href = HIRE_CONTACT_LINK;
 
 // membership buttons preselect the plan
 document.querySelectorAll("[data-plan]").forEach(a => a.addEventListener("click", () => { document.getElementById("f-plan").value = a.dataset.plan; }));
@@ -624,6 +632,19 @@ form.addEventListener("submit", async e => {
     form.reset(); msg.textContent = "Thank you, your application is in. We’ll be in touch personally to confirm your place. Your membership isn’t active until we’ve done that.";
   } catch { msg.textContent = "That didn’t send. Check your connection and try again."; }
   btn.disabled = false;
+});
+// venue hire enquiry form (sent to the same Formspree inbox)
+const hf=document.getElementById("hireform"), hm=document.getElementById("hiremsg");
+hf.addEventListener("submit", async e => {
+  e.preventDefault();
+  if (!hf.name.value.trim() || !hf.email.value.trim()){ hm.textContent = "Please add your name and email."; return; }
+  const b=hf.querySelector("button"); b.disabled=true; hm.textContent="Sending…";
+  try {
+    const r = await fetch(APPLICATION_FORM_LINK, { method:"POST", body:new FormData(hf), headers:{ Accept:"application/json" } });
+    if (!r.ok) throw new Error();
+    hf.reset(); hm.textContent = "Thank you, your enquiry is in. We’ll be in touch.";
+  } catch { hm.textContent = "That didn’t send. Check your connection and try again."; }
+  b.disabled=false;
 });
 </script>
 </body>
