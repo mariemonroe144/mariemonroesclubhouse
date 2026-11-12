@@ -123,7 +123,7 @@ section{padding:clamp(4.5rem,10vw,7.5rem) 0}
 .readings .box{display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center}
 .readings .meta{font-family:"Playfair Display",Georgia,serif;font-size:2.4rem;color:var(--ink);line-height:1.1}
 .readings .meta small{display:block;font-family:Montserrat,Arial,sans-serif;font-size:.95rem;color:var(--muted);margin-top:.4rem}
-@media (max-width:760px){.readings .box,#girls-night .box{grid-template-columns:1fr!important}}
+@media (max-width:760px){.readings .box,#private-experience .box{grid-template-columns:1fr!important}}
 
 /* membership */
 .why{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem 2rem;margin-top:2.6rem;text-align:left}
@@ -227,6 +227,7 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
     <nav class="nav" aria-label="Main">
       <a href="#house">The house</a>
       <a href="#week">What’s on</a>
+      <a href="/private-experience/">Private Experience</a>
       <a href="#membership">Membership</a>
       <a href="#hire">Venue hire</a>
       <a href="#find">Find us</a>
@@ -303,7 +304,7 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
         <span><i class="sw c-green"></i>Wellbeing</span>
         <span><i class="sw c-gold"></i>Social nights</span>
         <span><i class="sw c-purple"></i>Nightlife</span>
-        <span><i class="sw c-pink"></i>Private Girls Night</span>
+        <span><i class="sw c-pink"></i>Private hire</span>
         <span><i class="sw c-hire"></i>Available to hire</span>
       </div>
       <p class="also">Plus Moon Circles on every full and new moon, readings, reiki and sekhem by appointment, and special one off events.</p>
@@ -324,15 +325,15 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
     </div>
   </section>
 
-  <section id="girls-night">
+  <section id="private-experience">
     <div class="wrap box" style="display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center">
       <div>
-        <span class="eyebrow">Every Sunday, one a week</span>
-        <h2>Sunday Girls Nights</h2>
-        <p class="lede">The whole clubhouse, for you and up to 11 friends, every Sunday. The person who books gets a full 45 minute reading with me, every guest gets 20 minutes, plus dream boards, food, drinks, a goody bag each and photo opportunities everywhere. You choose the start time. Only one a week, so book your Sunday early.</p>
-        <div class="ctas" style="justify-content:flex-start"><a class="cta" href="https://marie-monroe-2.myshopify.com/products/girls-night-in">Book your Sunday</a><a class="cta line" href="https://quantummarie.com/girls-night/">See everything included</a></div>
+        <span class="eyebrow">Private hire, Sundays</span>
+        <h2>The Private Clubhouse Experience</h2>
+        <p class="lede">The whole Clubhouse to yourselves for five hours. Five hours in a Grade II listed Victorian house with your favourite people and nobody else. Private readings, karaoke and music, and a guided dream board session. Birthdays, hen parties and celebrations.</p>
+        <a class="cta" href="/private-experience/">See the Private Experience</a>
       </div>
-      <div class="readings meta" style="background:none;border:0;font-family:'Playfair Display',Georgia,serif;font-size:2.4rem;color:var(--ink);line-height:1.1">£111<small style="display:block;font-family:Montserrat,Arial,sans-serif;font-size:.95rem;color:var(--muted);margin-top:.4rem">per person, parties of 5 to 12</small></div>
+      <div style="font-family:'Playfair Display',Georgia,serif;font-size:2.4rem;color:var(--ink);line-height:1.1">£129<small style="display:block;font-family:Montserrat,Arial,sans-serif;font-size:.95rem;color:var(--muted);margin-top:.4rem">with a reading, £89 without</small></div>
     </div>
   </section>
 
@@ -505,7 +506,7 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
     <a href="#week">What’s on</a>
     <a href="#hire">Venue hire</a>
     <a href="https://quantummarie.com">Book a tarot reading</a>
-    <a href="https://quantummarie.com/girls-night/">Sunday Girls Nights</a>
+    <a href="/private-experience/">The Private Clubhouse Experience</a>
   </nav>
   <div class="social" id="social"></div>
 </footer>
@@ -541,7 +542,7 @@ const PHOTOS = {
 };
 
 // The weekly timetable. "green" wellbeing, "gold" social nights,
-// "purple" nightlife, "pink" private Girls Night, "hire" available to hire.
+// "purple" nightlife, "pink" Private Clubhouse Experience, "hire" available to hire.
 const TIMES = [
   { label: "10am to 11am" },
   { label: "11am to 5:30pm" },
@@ -551,7 +552,7 @@ const TIMES = [
 ];
 const H = ["Available to hire", "hire"];
 const M = ["Meditation", "green"];
-const G = ["Private Girls Night", "pink"];
+const G = ["Private Clubhouse Experience", "pink"];
 const TIMETABLE = {
   Mon: [M, H, M, ["Chess and Games Night", "gold"], ["Book Club", "gold"]],
   Tue: [M, H, M, ["Quiz Night", "gold"], ["Open Mic Comedy", "gold"]],
