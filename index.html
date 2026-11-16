@@ -7,7 +7,7 @@
 <meta name="description" content="A whole social life, without the alcohol. A private members’ club at Winpenny House, 45 High Street, Stockton-on-Tees. Meditation, book club, quiz nights, comedy, karaoke, silent discos and sober raves. Founding 25 at £60 a month, locked in for life.">
 <meta property="og:title" content="Marie Monroe’s Clubhouse">
 <meta property="og:description" content="An alcohol free members’ club on Stockton High Street. The founding 25 are now open.">
-<meta property="og:image" content="logo.jpg">
+<meta property="og:image" content="https://mariemonroesclubhouse.com/logo.jpg">
 <link rel="icon" href="logo.jpg">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"LocalBusiness","name":"Marie Monroe’s Clubhouse","description":"Alcohol free private members’ club at Winpenny House, a Grade II listed Victorian building on Stockton High Street.","url":"https://mariemonroesclubhouse.com","image":"https://mariemonroesclubhouse.com/location-house.jpg","address":{"@type":"PostalAddress","streetAddress":"Winpenny House, 45 High Street","addressLocality":"Stockton-on-Tees","addressCountry":"GB"}}
@@ -54,7 +54,7 @@ section{padding:clamp(4.5rem,10vw,7.5rem) 0}
 .nav a:hover{color:var(--gold)}
 .nav .apply{background:var(--gold);color:var(--night);padding:.55rem 1.2rem;border-radius:999px;font-weight:500}
 .nav .apply:hover{background:var(--gold-pale);color:var(--night)}
-@media (max-width:900px){.nav a:not(.apply){display:none}}
+@media (max-width:900px){.nav a:not(.apply):not(.mob){display:none}}
 
 /* hero */
 .hero{min-height:100svh;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden;padding:7rem 1.5rem 4rem;
@@ -217,6 +217,13 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
 .sticky .cta{padding:.7rem 1.3rem}
 @media (min-width:901px){.sticky{display:none}}
 @media (max-width:900px){footer{padding-bottom:6rem}}
+.paysfor{color:var(--gold);font-size:.9rem;margin:.2rem 0 1rem}
+.visitprices{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:1.8rem}
+.visitprices div{border:1px solid var(--line);border-radius:8px;padding:1.2rem 1.6rem;min-width:170px;background:var(--night)}
+.visitprices b{display:block;font-family:"Playfair Display",Georgia,serif;font-size:2.2rem;color:var(--gold);font-weight:500}
+.visitprices span{color:var(--muted);font-size:.95rem}
+.nav .short{display:none}
+@media (max-width:600px){.top .mark{font-size:.98rem}.nav{gap:.8rem}.nav a{white-space:nowrap;font-size:.82rem}.nav .apply{padding:.45rem .9rem}.nav .short{display:inline}.nav .long{display:none}}
 </style>
 </head>
 <body>
@@ -227,11 +234,11 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
     <nav class="nav" aria-label="Main">
       <a href="#house">The house</a>
       <a href="#week">What’s on</a>
-      <a href="/private-experience/">Fame &amp; Fortune</a>
+      <a class="mob" href="/private-experience/">Fame &amp; Fortune</a>
       <a href="#membership">Membership</a>
       <a href="#hire">Venue hire</a>
       <a href="#find">Find us</a>
-      <a class="apply" href="#apply">Become a member</a>
+      <a class="apply" href="#membership"><span class="long">Become a member</span><span class="short">Join</span></a>
     </nav>
   </div>
 </header>
@@ -242,12 +249,12 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
       <img class="logo" src="logo.jpg" alt="Marie Monroe’s Clubhouse" width="220" height="220">
       <h1>A whole social life, without the alcohol</h1>
       <p class="sub">A private members’ club inside a Grade II listed Victorian house. Somewhere to meet people, make friends, be entertained and become a regular, every week of the month.</p>
-      <p class="where">Winpenny House, Stockton High Street. Opening soon.</p>
+      <p class="where">Winpenny House, Stockton High Street. Opening soon. Founding places are open now.</p>
       <div class="ctas">
-        <a class="cta" href="#membership">Claim a founding place</a>
+        <a class="cta" href="/founding/">Claim a founding place</a>
         <a class="cta line" href="#house">Explore the Clubhouse</a>
       </div>
-      <div class="offer" id="scarce"><b>The founding 25:</b> £60 a month, locked in for life.</div>
+      <div class="offer" id="scarce"><b>The founding 25:</b> £60 a month, locked in for life. Full refund if we’re not open by 31 January 2027.</div>
     </div>
   </section>
 
@@ -258,11 +265,11 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
       <p class="lede">Behind the doors of Winpenny House, beneath crystal chandeliers and a Victorian balcony, there’s a whole week of things to do. Come for the meditation, stay for the quiz. Learn the regulars’ names. Have somewhere that feels like yours, all without alcohol.</p>
       <div class="pillars">
         <div class="pillar" style="--c:#2FA36B"><h3>Wellbeing</h3><p>Morning and after work meditation, and Moon Circles on every full and new moon.</p></div>
-        <div class="pillar" style="--c:var(--gold)"><h3>Social</h3><p>Book club, quiz nights, chess and games, cards evenings and Conspiracy Club. The easiest way to meet people.</p></div>
+        <div class="pillar" style="--c:var(--gold)"><h3>Social</h3><p>Quiz nights, the Redtooth Poker League, chess and games, cards evenings, book club and Conspiracy Club. The easiest way to meet people.</p></div>
         <div class="pillar" style="--c:var(--pink)"><h3>Nightlife</h3><p>Karaoke, silent discos, sober raves and open mic comedy. A proper night out, then drive yourself home.</p></div>
         <div class="pillar" style="--c:#A97BE0"><h3>The space</h3><p>The balcony bar and upstairs members’ space, with games, creative and chill out areas, whenever you like.</p></div>
       </div>
-      <p class="facts-line">Never more than 60 guests inside at once, and membership is limited, so it always feels intimate, never crowded.</p>
+      <p class="facts-line">Membership is limited, and members are always let in first.</p>
     </div>
   </section>
 
@@ -365,11 +372,12 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
             <li>The balcony bar and upstairs, whenever you like</li>
             <li>Priority entry</li>
             <li>Member prices on special events</li>
+            <li>Bring one friend once a month</li>
             <li>No joining fee</li>
             <li>Your photo and name on the founders’ wall, part of the Clubhouse’s history</li>
           </ul>
-          <a class="cta" href="#apply" data-plan="Founding member, £60 a month for life">Claim a founding place</a>
-          <p class="fine" id="places">Twenty five founding places.</p>
+          <a class="cta" href="/founding/">Claim a founding place</a>
+          <p class="fine" id="places">Twenty five founding places. Full refund if we’re not open by 31 January 2027.</p>
         </div>
         <div class="plan club">
           <span class="tag">Recommended</span>
@@ -380,6 +388,7 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
             <li>The whole weekly timetable, day and evening</li>
             <li>The wider Clubhouse experience</li>
             <li>Priority entry</li>
+            <li>Bring one friend once a month</li>
             <li>£25 one off joining fee</li>
           </ul>
           <a class="cta line" href="#apply" data-plan="Club member, £75 a month">Become a Club member</a>
@@ -392,12 +401,14 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
           <h3>Evening</h3>
           <div class="hprice">£50<small> a month</small></div>
           <p>Every evening event from 7pm, from quiz nights and karaoke to silent discos and sober raves. A night out without the bar bill or the taxi home, because you can drive.</p>
+          <p class="paysfor">Pays for itself after five nights at £12 on the door.</p>
           <a class="cta line" href="#apply" data-plan="Evening member, £50 a month">Apply for Evening</a>
         </div>
         <div class="half">
           <h3>Day</h3>
           <div class="hprice">£50<small> a month</small></div>
           <p>Every daytime class, including morning and after work meditation.</p>
+          <p class="paysfor">Pays for itself after five classes at £10 on the door.</p>
           <a class="cta line" href="#apply" data-plan="Day member, £50 a month">Apply for Day</a>
         </div>
       </div>
@@ -405,6 +416,22 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
       <p class="joinfee">All memberships include priority entry. A one off £25 joining fee applies to Day, Evening and Club memberships. Waived for the founding 25.</p>
     </div>
   </section>
+
+  <section id="visit" style="background:var(--purple)">
+    <div class="wrap center">
+      <span class="eyebrow">Not a member yet?</span>
+      <h2>Come and try it</h2>
+      <p class="lede">No booking needed. Just pay at the door, subject to space.</p>
+      <div class="visitprices">
+        <div><b>£10</b><span>Daytime classes</span></div>
+        <div><b>£12</b><span>Evening events</span></div>
+        <div><b>£25</b><span>Silent Disco and Sober Rave</span></div>
+      </div>
+      <p class="lede" style="margin-top:1.6rem">The house holds 60 at once and members always get in first. On busy nights, members are guaranteed a place and walk ins aren’t.</p>
+      <div class="ctas"><a class="cta" href="#week">See what’s on</a><a class="cta line" href="#membership">Become a member</a></div>
+    </div>
+  </section>
+
 
   <section class="making" id="making">
     <div class="wrap">
@@ -449,7 +476,6 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
         <div><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
         <div><label for="f-plan">Membership</label>
           <select id="f-plan" name="membership">
-            <option>Founding member, £60 a month for life</option>
             <option>Club member, £75 a month</option>
             <option>Evening member, £50 a month</option>
             <option>Day member, £50 a month</option>
@@ -470,9 +496,13 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
         <details><summary>What exactly is Marie Monroe’s Clubhouse?</summary><p>A private members’ club at Winpenny House on Stockton High Street. A whole social life without the alcohol: wellbeing, social nights, nightlife and an upstairs members’ space, all under one roof.</p></details>
         <details><summary>What’s included in membership?</summary><p>Depending on your membership, the weekly timetable, the balcony bar and upstairs members’ space, priority entry, and member prices on special events.</p></details>
         <details><summary>What’s the difference between Club, Day and Evening?</summary><p>Club is everything, £75 a month. Evening is every evening event from 7pm, £50 a month. Day is every daytime class, including morning and after work meditation, £50 a month.</p></details>
-        <details><summary>How does the Founding 25 offer work?</summary><p>The first 25 members pay £60 a month, locked in for life, for the whole weekly timetable, unlimited meditation, the balcony bar and upstairs whenever they like, priority entry, member prices on special events, no joining fee, and their photo and name on the founders’ wall.</p></details>
+        <details><summary>How does the Founding 25 offer work?</summary><p>The first 25 members pay £60 a month, locked in for life while their membership stays active, for the whole weekly timetable, unlimited meditation, the balcony bar and upstairs whenever they like, priority entry, member prices on special events, no joining fee, and their photo and name on the founders’ wall. Your first payment covers your first full month from opening day. <a href="/founding/">Claim a founding place</a>.</p></details>
+        <details><summary>What if you don’t open in time?</summary><p>If the Clubhouse isn’t open by 31 January 2027, founders get a full refund.</p></details>
+        <details><summary>Can I cancel?</summary><p>Yes, with no notice needed. If you’re a founder, once you cancel, the founding price is gone for good.</p></details>
         <details><summary>Is there a joining fee?</summary><p>A one off £25 joining fee applies to Day, Evening and Club memberships. It’s waived for the founding 25.</p></details>
         <details><summary>What happens when membership is full?</summary><p>Membership is limited. Once every place is taken, new applicants join the waiting list.</p></details>
+        <details><summary>Can I come without being a member?</summary><p>Yes. Just pay at the door, subject to space. Daytime classes are £10, evening events £12, and Silent Disco and Sober Rave £25. Members always get in first.</p></details>
+        <details><summary>Can I bring a friend?</summary><p>Yes. Members can bring one friend once a month.</p></details>
         <details><summary>What happens if an event is full?</summary><p>The house holds a maximum of 60 guests at once. Members always have priority entry over non members.</p></details>
         <details><summary>Where is the Clubhouse?</summary><p>Winpenny House, 45 High Street, Stockton-on-Tees. Opposite the fountains, next to the new park.</p></details>
         <details><summary>How do I apply?</summary><p>Fill in the application form. We’ll be in touch personally to confirm your place, or add you to the waiting list once we’re full.</p></details>
@@ -526,7 +556,7 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
 
 <div class="sticky" id="sticky">
   <span>Founding 25: £60 a month for life</span>
-  <a class="cta" href="#apply">Become a member</a>
+  <a class="cta" href="/founding/">Claim a place</a>
 </div>
 
 <script>
@@ -541,7 +571,7 @@ const APPLICATION_FORM_LINK = "https://formspree.io/f/xdeebdyj";
 const FOUNDING_PLACES_TAKEN = 0;
 
 // Your social links. Leave any empty to hide it.
-const SOCIAL = { Instagram: "", Facebook: "", TikTok: "" };
+const SOCIAL = { Instagram: "https://www.instagram.com/mariemonroesclubhouse", Facebook: "", TikTok: "" };
 
 
 // Making of photos. Upload images to the same folder and list them here.
@@ -567,7 +597,7 @@ const TIMETABLE = {
   Mon: [M, H, M, ["Chess and Games Night", "gold"], ["Book Club", "gold"]],
   Tue: [M, H, M, ["Quiz Night", "gold"], ["Open Mic Comedy", "gold"]],
   Wed: [M, H, M, ["Cards Evening", "gold"], ["Conspiracy Club", "gold"]],
-  Thu: [H, H, H, H, H],
+  Thu: [H, H, H, ["Redtooth Poker League", "gold"], ["Redtooth Poker League", "gold"]],
   Fri: [M, H, M, ["Karaoke", "purple"], ["Karaoke", "purple"]],
   Sat: [M, H, M, ["Silent Disco", "purple"], ["Sober Rave", "purple"]],
   Sun: [G, G, G, G, G]
