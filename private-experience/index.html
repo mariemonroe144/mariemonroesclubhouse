@@ -123,6 +123,15 @@ section{padding:clamp(4.5rem,10vw,7.5rem) 0}
 .addons li::before{content:"✦";position:absolute;left:0;color:var(--gold);font-size:.8rem;top:.2rem}
 .addons li b{display:block;color:var(--ink);font-weight:600}
 .addons p{margin:0;font-size:.95rem;color:var(--gold-pale)}
+.depnote{margin:.9rem 0 0;font-size:.9rem;color:var(--gold-pale)}
+.forchips{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin:1.4rem 0 0}
+.forchips span{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--line);padding:.2rem .4rem}
+.pxgallery{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:2.4rem}
+.pxgallery img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px;border:1px solid var(--line)}
+.honour{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:1.5rem;color:var(--gold);margin:1.6rem 0}
+.pxreviews{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+.pxreviews img{width:100%;border-radius:8px;border:1px solid var(--line)}
+@media (max-width:640px){.pxgallery,.pxreviews{grid-template-columns:1fr}}
 /* readings */
 .readings{background:linear-gradient(135deg,rgba(255,79,163,.08),transparent 60%),var(--purple);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .readings .box{display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center}
@@ -267,7 +276,7 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
       <a href="/private-experience/" aria-current="page">Private Experience</a>
       <a href="/#membership">Membership</a>
       <a href="/#find">Find us</a>
-      <a class="apply" href="#book">Check your Sunday</a>
+      <a class="apply" href="#book">Book your Sunday</a>
     </nav>
   </div>
 </header>
@@ -279,9 +288,11 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
       <h1>Close the doors. The Clubhouse is yours.</h1>
       <p class="sub">Five hours in a Grade II listed Victorian house with your favourite people and nobody else. Private readings, karaoke and music, a spread of food from a local caterer and a glass of something sparkling the moment you walk in.</p>
       <div class="ctas">
-        <a class="cta" href="#book">Check your Sunday</a>
+        <a class="cta" href="#book">Book your Sunday</a>
         <a class="cta line" href="#tickets">See the tickets</a>
       </div>
+      <p class="depnote">A £250 deposit secures your Sunday</p>
+      <div class="forchips"><span>Birthdays</span><span>Hen parties</span><span>Christmas parties</span><span>Milestones</span></div>
       <div class="pricechips"><span><b>£89</b> with a reading</span><span><b>£49</b> without</span><span>Up to 50 guests</span><span>Five hours, all yours</span><span>Sundays only</span></div>
     </div>
   </section>
@@ -291,6 +302,10 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
       <span class="eyebrow">Picture it</span>
       <h2>Your five hours</h2>
       <p class="story">The doors close behind you and the house is yours. Glasses of alcohol free sparkling wine go round beneath the chandeliers, and the music’s already playing. One by one, your people slip away for a private reading with me and come back with <em>something to say about it</em>. Someone’s on the mic. Someone’s at the sober bar ordering another coffee. Someone’s back at the food for another plate. Five hours later, everyone walks out with a gift bag and a story about the night.</p>
+    </div>
+    <div class="wrap pxgallery">
+      <img src="/render-1.jpg" alt="Inside Marie Monroe’s Clubhouse beneath the chandeliers" loading="lazy">
+      <img src="/render-2.jpg" alt="The Victorian balcony at Marie Monroe’s Clubhouse" loading="lazy">
     </div>
   </section>
 
@@ -304,9 +319,9 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
         <article style="--c:var(--gold)"><h3>The whole house</h3><p>Every room, every chandelier, the Victorian balcony. No other bookings, no strangers, nobody asking to share your table. From the moment you arrive, it’s your Clubhouse.</p></article>
         <article style="--c:var(--pink)"><h3>Private readings</h3><p>One to one with me, in private. A full 45 minutes for the guest of honour, 20 minutes for everyone else on a reading ticket.</p></article>
         <article style="--c:#A97BE0"><h3>Karaoke and music</h3><p>The music’s on from the start and the mic is yours all event long, for the one who’s been waiting all year to do it.</p></article>
-        <article style="--c:#2FA36B"><h3>The sober bar</h3><p>A welcome glass of alcohol free sparkling wine for every guest. Barista coffee and anything else from the sober bar can be bought on the day.</p></article>
+        <article style="--c:#2FA36B"><h3>The food</h3><p>A spread of food made by a local caterer, laid out for everyone to help themselves all event long. Nothing to organise, and nobody goes hungry.</p></article>
       </div>
-      <p class="also-line">Plus a spread of food made by a local caterer, a welcome glass of alcohol free sparkling wine for every guest, a gift bag with a crystal and sage, and the sober bar and barista coffee for anything else you fancy.</p>
+      <p class="also-line">Plus a welcome glass of alcohol free sparkling wine for every guest, and a gift bag with a crystal and sage to take home.</p>
     </div>
   </section>
 
@@ -315,6 +330,12 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
       <span class="eyebrow">The readings</span>
       <h2>Private, personal, yours alone</h2>
       <p class="lede" style="max-width:none">I start the moment your event begins. One by one, each guest on a reading ticket joins me in private. Your cards are shuffled in front of you, for you, and the reading is yours alone, never a show for the room. While each person is with me, everyone else carries on with the party.</p>
+      <p class="honour">The guest of honour gets the full 45 minute reading.</p>
+      <div class="pxreviews">
+        <img src="https://quantummarie.com/review-chloe.jpg" alt="Review from Chloe after a reading with Marie" loading="lazy">
+        <img src="https://quantummarie.com/review-lisa.jpg" alt="Review from Lisa after a reading with Marie" loading="lazy">
+        <img src="https://quantummarie.com/review-david.jpg" alt="Review from David after a reading with Marie" loading="lazy">
+      </div>
     </div>
   </section>
 
@@ -333,7 +354,7 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
           <ul>
             <li>Your own private reading with me</li>
             <li>The full 45 minutes for the organiser or birthday person, 20 minutes for everyone else</li>
-            <li>Everything the event includes</li>
+            <li>Plus everything on a guest ticket</li>
           </ul>
         </div>
         <div class="plan guest">
@@ -373,8 +394,8 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
         <li><span class="n">3</span><div><h3>Pay the balance</h3><p>Your numbers and payment both need to be in by 14 days before your event.</p></div></li>
         <li><span class="n">4</span><div><h3>Close the doors</h3><p>Five hours. The whole Clubhouse. Your people.</p></div></li>
       </ul>
-      <div class="ctas" style="justify-content:flex-start;margin-top:2rem"><a class="cta" href="https://marie-monroe-2.myshopify.com/products/girls-night-in">Check your Sunday</a></div>
-      <p class="joinfee" style="text-align:left">If you cancel, the deposit isn’t refunded. You’re charged for the numbers you confirm, with a minimum of 8 reading tickets. <a href="/terms/">Read the full booking terms</a>.</p>
+      <div class="ctas" style="justify-content:flex-start;margin-top:2rem"><a class="cta" href="https://marie-monroe-2.myshopify.com/products/girls-night-in">Book your Sunday</a></div>
+      <p class="joinfee" style="text-align:left">You’re charged for the numbers you confirm, with a minimum of 8 reading tickets. <a href="/terms/">Read the full booking terms</a>.</p>
     </div>
   </section>
 
@@ -389,7 +410,6 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
         <details><summary>What if fewer than 8 want a reading?</summary><p>The minimum is 8 reading tickets per booking. Everyone else can come on a guest ticket.</p></details>
         <details><summary>What’s at the sober bar?</summary><p>Everyone gets a welcome glass of alcohol free sparkling wine. Barista coffee and anything else from the sober bar can be bought on the day.</p></details>
         <details><summary>Is food included?</summary><p>Yes. Every booking comes with a spread of food made by a local caterer, so there’s nothing to organise and nobody goes hungry.</p></details>
-        <details><summary>What if we need to cancel?</summary><p>The deposit isn’t refunded if you cancel.</p></details>
         <details><summary>Where is it?</summary><p>Marie Monroe’s Clubhouse, Winpenny House, 45 High Street, Stockton-on-Tees.</p></details>
       </div>
     </div>
@@ -398,7 +418,7 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
   <section class="finale">
     <div class="narrow">
       <h2>Your people. Your house. Your five hours.</h2>
-      <div class="ctas" style="margin-top:2rem"><a class="cta" href="#book">Check your Sunday</a></div>
+      <div class="ctas" style="margin-top:2rem"><a class="cta" href="#book">Book your Sunday</a></div>
     </div>
   </section>
 </main>
