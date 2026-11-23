@@ -224,6 +224,7 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
 .visitprices span{color:var(--muted);font-size:.95rem}
 .nav .short{display:none}
 @media (max-width:600px){.top .mark{font-size:.98rem}.nav{gap:.8rem}.nav a{white-space:nowrap;font-size:.82rem}.nav .apply{padding:.45rem .9rem}.nav .short{display:inline}.nav .long{display:none}}
+.secnote{font-size:.8rem;color:var(--muted);margin:.6rem 0 0}
 </style>
 </head>
 <body>
@@ -483,6 +484,7 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
         </div>
         <div><label for="f-why">What would you come for?</label><textarea id="f-why" name="interests" rows="3"></textarea></div>
         <div><button class="cta" type="submit">Send my application</button></div>
+        <p class="secnote">To protect against abuse, your IP address is recorded with every message sent.</p>
         <p class="form-msg" id="formmsg" role="status"></p>
       </form>
     </div>
@@ -529,6 +531,7 @@ footer nav,footer .social{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem 
           <div><label for="h-email">Email</label><input id="h-email" name="email" type="email" autocomplete="email" required></div>
           <div><label for="h-msg">What would you like to run, and when?</label><textarea id="h-msg" name="hire_enquiry" rows="3"></textarea></div>
           <div><button class="cta line" type="submit">Send my enquiry</button></div>
+          <p class="secnote">To protect against abuse, your IP address is recorded with every message sent.</p>
           <p class="form-msg" id="hiremsg" role="status"></p>
         </form>
       </div>
@@ -650,16 +653,44 @@ document.querySelectorAll("[data-plan]").forEach(a => a.addEventListener("click"
 const hero = document.getElementById("hero"), sticky = document.getElementById("sticky");
 if ("IntersectionObserver" in window) new IntersectionObserver(e => sticky.classList.toggle("show", !e[0].isIntersecting)).observe(hero);
 
+// abuse protection: adds IP address, time, page and device to every form sent
+const PAGE_LOADED = Date.now();
+async function secureData(f){
+  const d = new FormData(f);
+  let ip = "unavailable";
+  try {
+    const c = new AbortController(); setTimeout(() => c.abort(), 3000);
+    const r = await fetch("https://api.ipify.org?format=json", { signal: c.signal });
+    ip = (await r.json()).ip || ip;
+  } catch {}
+  d.append("ip_address", ip);
+  d.append("sent_at", new Date().toLocaleString("en-GB", { timeZone: "Europe/London" }));
+  d.append("page", location.href);
+  d.append("device", navigator.userAgent);
+  return d;
+}
+function blocked(f, m){
+  if (f._gotcha && f._gotcha.value) return true;               // spam trap filled in by a bot
+  if (Date.now() - PAGE_LOADED < 4000) return true;            // sent too fast to be a person
+  try {
+    const last = +localStorage.getItem("mmc_last_sent") || 0;
+    if (Date.now() - last < 60000){ m.textContent = "Please wait a minute before sending another message."; return "wait"; }
+  } catch {}
+  return false;
+}
+function markSent(){ try { localStorage.setItem("mmc_last_sent", Date.now()); } catch {} }
+
 // application form
 const form = document.getElementById("applyform"), msg = document.getElementById("formmsg");
 form.addEventListener("submit", async e => {
   e.preventDefault();
   if (!form.name.value.trim() || !form.email.value.trim()){ msg.textContent = "Please add your name and email."; return; }
+  const bk = blocked(form, msg); if (bk === "wait") return; if (bk){ form.reset(); msg.textContent = "Thank you."; return; }
   const btn = form.querySelector("button"); btn.disabled = true; msg.textContent = "Sending…";
   try {
-    const r = await fetch(APPLICATION_FORM_LINK, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } });
+    const r = await fetch(APPLICATION_FORM_LINK, { method: "POST", body: await secureData(form), headers: { Accept: "application/json" } });
     if (!r.ok) throw new Error();
-    form.reset(); msg.textContent = "Thank you, your application is in. We’ll be in touch personally to confirm your place. Your membership isn’t active until we’ve done that.";
+    markSent(); form.reset(); msg.textContent = "Thank you, your application is in. We’ll be in touch personally to confirm your place. Your membership isn’t active until we’ve done that.";
   } catch { msg.textContent = "That didn’t send. Check your connection and try again."; }
   btn.disabled = false;
 });
@@ -668,11 +699,12 @@ const hf=document.getElementById("hireform"), hm=document.getElementById("hirems
 hf.addEventListener("submit", async e => {
   e.preventDefault();
   if (!hf.name.value.trim() || !hf.email.value.trim()){ hm.textContent = "Please add your name and email."; return; }
+  const bk = blocked(hf, hm); if (bk === "wait") return; if (bk){ hf.reset(); hm.textContent = "Thank you."; return; }
   const b=hf.querySelector("button"); b.disabled=true; hm.textContent="Sending…";
   try {
-    const r = await fetch(APPLICATION_FORM_LINK, { method:"POST", body:new FormData(hf), headers:{ Accept:"application/json" } });
+    const r = await fetch(APPLICATION_FORM_LINK, { method:"POST", body: await secureData(hf), headers:{ Accept:"application/json" } });
     if (!r.ok) throw new Error();
-    hf.reset(); hm.textContent = "Thank you, your enquiry is in. We’ll be in touch.";
+    markSent(); hf.reset(); hm.textContent = "Thank you, your enquiry is in. We’ll be in touch.";
   } catch { hm.textContent = "That didn’t send. Check your connection and try again."; }
   b.disabled=false;
 });
